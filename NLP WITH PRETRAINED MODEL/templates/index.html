@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <div class="analysis-section">
+            <h2>Single Review Analysis</h2>
+            <textarea id="review-text" placeholder="Enter your review here..."></textarea>
+            <button id="analyze-btn">Analyze Sentiment</button>
+            <div id="result" class="hidden">
+                <p>Sentiment: <span id="sentiment"></span></p>
+                <p>Score: <span id="score"></span></p>
+                <div id="score-bar"></div>
+            </div>
+        </div>
+        <div class="analysis-section">
+            <h2>Batch Analysis</h2>
+            <form id="batch-form" enctype="multipart/form-data">
+                <input type="file" id="csv-file" accept=".csv" required>
+                <button type="submit">Analyze Batch</button>
+            </form>
+            <a id="download-link" class="hidden" download="sentiment_analysis_results.csv">Download Results</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
